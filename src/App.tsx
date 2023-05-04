@@ -10,8 +10,8 @@ function App() {
       <div className="h-[100vh] bg-slate-50 ">
 
         <Navbar />
-        {/* <CreateNewRecord /> */}
-        <DisplayRecords />
+        <CreateNewRecord />
+        {/* <DisplayRecords /> */}
 
       </div>
 

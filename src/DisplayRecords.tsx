@@ -1,11 +1,13 @@
+import DataCard from "./DataCard";
 
 
 export default function DisplayRecords() {
 
-    return (<>
-        <div>
-            display records section
 
+
+    return (<>
+        <div className="flex flex-wrap justify-center">
+            <DataCard />
         </div>
     </>)
 }
