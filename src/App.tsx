@@ -1,6 +1,6 @@
 import Navbar from "./Navbar"
 import CreateNewRecord from "./CreateNewRecord"
-import DisplayRecords from "./DisplayRecords"
+// import DisplayRecords from "./DisplayRecords"
 
 
 function App() {
