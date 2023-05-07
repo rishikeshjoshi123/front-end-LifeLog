@@ -14,12 +14,9 @@ function App() {
   return (
     <>
       <div className="h-[100vh] bg-slate-50 ">
-
         <Navbar handleNavButton={handleFormToggle} />
         {formToggle ? <CreateNewRecord /> : <DisplayRecords />}
-
-      </div>  
-
+      </div> 
     </>
   )
 
