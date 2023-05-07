@@ -1,9 +1,9 @@
 
 
-export default function DataCard() {
+export default function DataCard() {    
 
     return (
-        <div className="flex flex-col my-2 p-2 mx-2 w-96 bg-slate-300 rounded">
+        <div className="flex flex-col my-2 p-2 mx-2 w-4/5 bg-slate-300 rounded text-2xl ">
             <div className="flex justify-between">
                 <div className="p-1 my-1  rounded bg-slate-100 text-slate-700 font-semibold">
                     27-Jan-2023
@@ -20,11 +20,15 @@ export default function DataCard() {
                 </div>
 
             </div>
-            <div className="p-1 my-1 rounded bg-slate-100 text-slate-700">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat natus quas, minus quas distinctio non maxime ea explicabo neque expedita est, sit ipsa. Reprehenderit minus, quibusdam eligendi ut, dignissimos pariatur dolore culpa officia optio id magnam labore libero aliquid repudiandae sed provident quaerat?
+            <div className="flex flex-col p-1 my-1 rounded bg-slate-100 text-slate-700  ">
+                <div className="py-1 font-semibold bg-slate-100 text-slate-700">Day description: </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat natus quas, minus quas distinctio non maxime ea explicabo neque expedita est, sit ipsa. Reprehenderit minus, quibusdam eligendi ut, dignissimos pariatur dolore culpa officia optio id magnam labore libero aliquid repudiandae sed provident quaerat?</p>
+
             </div>
-            <div className="p-1 my-1 rounded bg-slate-100 text-slate-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, non.
+            <div className="flex flex-col p-1 my-1 rounded bg-slate-100 text-slate-700 ">
+                <div className="py-1 font-semibold bg-slate-100 text-slate-700">Yoga description: </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, non.</p>
+
             </div>
 
         </div>
