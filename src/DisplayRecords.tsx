@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DataCard from "./DataCard";
+import { PayloadShape, DataCard } from "./DataCard";
 
 interface DataShape {
     _id: string;
@@ -17,6 +17,17 @@ export default function DisplayRecords() {
 
     const [data, setData] = useState<DataShape[]>();
 
+
+    function handleDataUpdate(_obj: PayloadShape) {
+        setData(prev => {
+            return prev?.map(E => {
+                if (E._id === _obj._id) {
+                    return { ...E, ..._obj };
+                }
+                return E;
+            })
+        })
+    }
     async function handleDeleteClick(_id: string) {
         try {
             const response = await fetch(`http://localhost:3000/${_id}`, {
@@ -57,7 +68,7 @@ export default function DisplayRecords() {
     return (<>
         <div className="h-[680px] flex flex-col items-center overflow-y-scroll">
             {data?.map(D => {
-                return <DataCard key={D._id} {...D} onDeleteClick={handleDeleteClick} />
+                return <DataCard key={D._id} {...D} onDeleteClick={handleDeleteClick} onUpdateData={handleDataUpdate} />
             })}
         </div>
     </>)
