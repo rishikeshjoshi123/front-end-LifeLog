@@ -2,21 +2,26 @@
 export default function CreateNewRecord() {
 
     function formatDateProperly(_date: string) {
-        const [H, M]: [number, number] = _date.split(":");
-        const newDate = new Date();
-        newDate.setHours(H);
-        newDate.setMinutes(M);
-        return newDate;
+        try {
+            const [H, M]: number[] = _date.split(":").map(val => parseInt(val));
+            const newDate = new Date();
+            newDate.setHours(H);
+            newDate.setMinutes(M);
+            return newDate;
+        }
+        catch (err) {
+            throw err;
+        }
+
     }
 
-    async function handleSubmitEvent(e) {
+    async function handleSubmitEvent(e: React.FormEvent<HTMLFormElement>) {
+        const formData = new FormData(e.target as HTMLFormElement);
 
-        const wake = formatDateProperly(e.target.wakeUpTime.value);
-        const sleep = formatDateProperly(e.target.sleepTime.value);
-        const Day = e.target.dayDesc.value;
-        const yoga = e.target.yogaDes.value;
-
-
+        const wake = formatDateProperly(formData.get("wakeUpTime") as string);
+        const sleep = formatDateProperly(formData.get("sleepTime") as string);
+        const Day = formData.get("dayDesc") as string;
+        const yoga = formData.get("yogaDes") as string;
 
         const payload = {
             'wakeUpTime': wake,
@@ -26,6 +31,7 @@ export default function CreateNewRecord() {
         };
 
         try {
+            console.log('payload ready : ', payload);
             const response = await fetch('http://localhost:3000/', {
                 method: 'POST',
                 headers: {
@@ -34,13 +40,11 @@ export default function CreateNewRecord() {
                 body: JSON.stringify(payload)
             });
             const data = await response.json();
-            console.log('payload saved: ', data);
+            console.log('payload saved, data received: ', data);
         }
         catch (err) {
             console.log('Error occured in payload saving. -> ', err);
         }
-
-
 
     }
 
